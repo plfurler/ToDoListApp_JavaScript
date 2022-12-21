@@ -5,20 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
+    <title>To Do List App</title>
 </head>
 
 <body>
-    <div class="input">
-        <h1>To Do List</h1>
-        <input type="text" name="toDo" id="toDo" placeholder="Add an item!">
-        <input type="submit" value="Add to List">
-        <input type="reset" value="Clear List">
+    
+    <div>
+        <h1>To Do List App</h1>
+        <form>
+            <input type="text" name="toDo" autofocus placeholder="Add an item!">
+            <input type="submit" value="Add Item to List">
+            <input type="reset" value="Clear Item">
+        </form>
     </div>
-    <div class="output">
-        <ol></ol>
+
+    <div>
+        <ol id="toDoList"></ol>
     </div>
+
     <script src="app.js"></script>
+    
 </body>
 
-</html>
+</html> 
