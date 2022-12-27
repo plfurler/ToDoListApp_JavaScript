@@ -3,9 +3,8 @@ const toDoListForm = document.forms[0];
 toDoListForm
     .addEventListener("submit", function (e) {
         // Get required elements from the DOM
-        let toDoListInput = toDoListForm.elements['toDo'];
-        let toDoList = document.getElementById('toDoList');
-
+        const toDoListInput = toDoListForm.elements['toDo'];
+        const toDoList = document.getElementById('toDoList');
 
         // Prevent the form from submitting, which is the default behaviour
         e.preventDefault();
