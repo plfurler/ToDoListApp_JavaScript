@@ -1,27 +1,41 @@
-const toDoListForm = document.forms[0];
+{
+    const toDoListForm = document.querySelector('form');
 
-toDoListForm
-    .addEventListener("submit", function (e) {
-        // Get required elements from the DOM
-        const toDoListInput = toDoListForm.elements['toDo'];
-        const toDoList = document.getElementById('toDoList');
+    toDoListForm
+        .addEventListener("submit", function (e) {
+            // Prevent the form from submitting, which is the default behaviour
+            e.preventDefault();
 
-        // Prevent the form from submitting, which is the default behaviour
-        e.preventDefault();
+            // Get the required elements from the DOM
+            const toDoListInput = toDoListForm.querySelector('input');
+            const toDoList = document.getElementById('toDoList');
 
-        // Create a list item element
-        let toDoListItem = document.createElement('li');
+            // Create a list item element
+            let toDoListItem = document.createElement('li');
 
-        // Add the text from user to the list item
-        toDoListItem.innerHTML = toDoListInput.value;
+            // Add the text from user to the list item
+            toDoListItem.innerHTML = toDoListInput.value + '&nbsp;';
 
-        // Append list item to the to do list
-        toDoList.appendChild(toDoListItem);
+            // Append list item to the to do list
+            toDoList.appendChild(toDoListItem);
 
-        // Clear the text in the input box
-        toDoListInput.value = null;
+            // Create the remove button
+            let removeButton = document.createElement('button');
+            removeButton.setAttribute("type", "button");
+            removeButton.innerHTML = "Remove";
+            removeButton.addEventListener("click", function () {
+                let listItemElement = removeButton.parentElement;
+                listItemElement.parentElement.removeChild(listItemElement);
+            })
 
-        // Apply focus back to input box
-        toDoListInput.focus();
+            //Append remove button to list item
+            toDoListItem.appendChild(removeButton);
 
-    });
+            // Clear the text in the input box
+            toDoListInput.value = null;
+
+            // Apply focus back to the input box
+            toDoListInput.focus();
+
+        });
+}
